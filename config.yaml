@@ -25,3 +25,55 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: llm-agent
+      description: 帮我查找大语言模型 Agent 相关顶会顶刊论文，重点关注 Agent 的规划能力、记忆机制、工具调用和自我反思模块，优先收录 ICML/NeurIPS/ICLR/ACL 的综述和高引用论文
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: tool use
+          keyword_cn: 工具调用
+          query: tool using ability of language agents
+        - keyword: Agent harness
+          keyword_cn: ''
+          query: Agent harness
+        - keyword: agent planning
+          keyword_cn: 智能体规划
+          query: planning capabilities of large language model agents
+        - keyword: agent memory
+          keyword_cn: 智能体记忆
+          query: memory mechanisms in LLM based agents
+        - keyword: self reflection
+          keyword_cn: 自我反思
+          query: self reflection module for LLM agents
+        - keyword: agent reasoning
+          keyword_cn: 智能体推理
+          query: reasoning and decision making in LLM agents
+      intent_queries:
+        - query: ICML NeurIPS ICLR ACL papers on large language model agent planning memory tool calling and self reflection
+          query_cn: ICML/NeurIPS/ICLR/ACL上关于大语言模型智能体规划、记忆、工具调用和自我反思的论文
+          enabled: true
+          source: manual
+          note: ''
+        - query: recent advances in LLM agent planning and memory mechanisms
+          query_cn: 大语言模型智能体规划与记忆机制的最新进展
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-06-03T12:24:41.878Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq

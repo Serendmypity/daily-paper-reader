@@ -1,0 +1,1294 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-03T12:38:14.287623+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 41,
+    "deep_cap": 6,
+    "deep_selected": 21,
+    "quick_candidates": 29,
+    "quick_skim_target": 11,
+    "quick_selected": 11
+  },
+  "deep_dive": [
+    {
+      "id": "2605.26112v1",
+      "source": "arxiv",
+      "title": "From Model Scaling to System Scaling: Scaling the Harness in Agentic AI",
+      "abstract": "This paper studies the next major bottleneck in agentic AI as system scaling, not only model scaling: the design of auditable, persistent, modular, and verifiable architectures around foundation models. We refer to this shift as scaling the harness: treating the structured execution layer around a foundation model as a first-class object of design, evaluation, and optimization. Although recent large language models enable agents to use tools, retrieve information, maintain memory, and execute long-horizon workflows, evaluation remains largely model-centric, often reducing agents to final-task success while treating memory, retrieval, tool use, orchestration, verification, and governance as secondary implementation details. This framing is increasingly inadequate because agent performance emerges from the interaction among the foundation model, memory substrate, context constructor, skill-routing layer, orchestration loop, and verification-and-governance layer. Together, these components form the agent harness, which translates model capability into long-horizon agent behavior. We study scaling the harness through three core bottlenecks: context governance, trustworthy memory, and dynamic skill routing, together with the orchestration and governance mechanisms that coordinate and constrain them. We further outline a research agenda for harness-level benchmarks that go beyond one-shot task success to measure trajectory quality, memory hygiene, context efficiency, communication fidelity, verification cost, and safe evolution over time. To make the discussion concrete, we develop CheetahClaws: https://github.com/SafeRL-Lab/cheetahclaws, a Python-native reference harness, and compare it with Claude Code and OpenClaw. Our main claim is that future progress in agentic AI will depend as much on system design as on stronger foundation models.",
+      "authors": [
+        "Shangding Gu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-05-25T17:59:36+00:00",
+      "link": "https://arxiv.org/pdf/2605.26112v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "proposes scaling the harness as a structured execution layer for agentic AI, covering tool use, memory, and orchestration",
+      "llm_evidence_cn": "提出扩展智能体架构中的'马具'层——围绕基础模型的结构化执行层，涵盖工具使用、记忆和编排",
+      "llm_evidence": "提出扩展智能体架构中的'马具'层——围绕基础模型的结构化执行层，涵盖工具使用、记忆和编排",
+      "canonical_evidence": "提出扩展智能体架构中的'马具'层——围绕基础模型的结构化执行层，涵盖工具使用、记忆和编排",
+      "llm_tldr_en": "This paper argues for system scaling over model scaling in agentic AI, emphasizing the design of auditable, modular harness architectures.",
+      "llm_tldr_cn": "该论文提出代理AI的下一个瓶颈是系统扩展而非模型扩展，主张将结构化执行层（马具）作为一等设计对象，涵盖记忆、工具使用和编排。作者批评当前以模型为中心的评估忽视这些组件，并呼吁转向可审计、持久化和模块化的系统级优化。",
+      "llm_tldr": "该论文提出代理AI的下一个瓶颈是系统扩展而非模型扩展，主张将结构化执行层（马具）作为一等设计对象，涵盖记忆、工具使用和编排。作者批评当前以模型为中心的评估忽视这些组件，并呼吁转向可审计、持久化和模块化的系统级优化。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "Agent harness",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.26289v1",
+      "source": "arxiv",
+      "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling",
+      "abstract": "Multi-agent tool calling is becoming the dominant interaction pattern for LLM-based systems, yet existing inference frameworks treat each tool call as an independent request, re-processing the entire conversation from scratch even though 85-95% of the prompt is unchanged from the previous turn.   We present a stateful inference architecture that converts the $O(n_t)$ per-turn cost of conventional serving into an $O(Δ_t)$ delta-only cost: a persistent KV cache lives across turns and advances by ingesting only the new tokens, while a radix prefix cache extends this across interleaved multi-agent traffic and a prompt-lookup speculative decoder accelerates structured output. Against vLLM and SGLang on novel, fully-generated workloads, the reference implementation is $2.1\\times$ faster per turn on a 6-turn agentic workflow and $4.2\\times$ on the median turn of a 35-turn one, halving end-to-end wall time. The advantage comes from stateful reuse and speculation, not caching.",
+      "authors": [
+        "Victor Norgren"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-05-25T19:27:49+00:00",
+      "link": "https://arxiv.org/pdf/2605.26289v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Stateful inference framework for efficient multi-agent tool calling",
+      "llm_evidence_cn": "面向多代理工具调用场景的有状态推理架构",
+      "llm_evidence": "面向多代理工具调用场景的有状态推理架构",
+      "canonical_evidence": "面向多代理工具调用场景的有状态推理架构",
+      "llm_tldr_en": "Stateful inference with persistent KV cache reduces per-turn cost in multi-agent tool calling, achieving significant latency reduction compared to vLLM and SGLang.",
+      "llm_tldr_cn": "针对多代理工具调用中重复处理完整对话历史的低效问题，提出有状态推理架构，通过持久化KV缓存、基数前缀缓存和提示查找推测解码实现增量计算，将每轮成本从O(n_t)降至O(Δ_t)。在多种工作负载上对比vLLM和SGLang，延迟降低显著，为高吞吐代理系统提供了实用的基础设施方案。",
+      "llm_tldr": "针对多代理工具调用中重复处理完整对话历史的低效问题，提出有状态推理架构，通过持久化KV缓存、基数前缀缓存和提示查找推测解码实现增量计算，将每轮成本从O(n_t)降至O(Δ_t)。在多种工作负载上对比vLLM和SGLang，延迟降低显著，为高吞吐代理系统提供了实用的基础设施方案。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.27762v1",
+      "source": "arxiv",
+      "title": "PEAM: Parametric Embodied Agent Memory through Contrastive Internalization of Experience in Minecraft",
+      "abstract": "We present PEAM, a Parametric Embodied Agent Memory framework in Minecraft that transforms agent memory from inference-time retrieval into parameter-resident skills internalized through experience. PEAM pairs a slow deliberative LLM for open-ended reasoning with a fast parametric module for reflexive execution of consolidated skills. The fast module is a multimodal Mixture-of-Experts LoRA architecture with per-category physically isolated adapters, enabling parameter-level continual learning without catastrophic forgetting. We treat failure as a first-class training signal: failure--correction trajectory pairs are internalized through a joint behavioral-cloning and contrastive objective, so the agent learns not only what succeeds but also how corrected actions differ from failed ones. To govern consolidation, PEAM introduces a parameterization-worthiness score for deciding which experience should be internalized, and a scale-free self-triggered consolidation mechanism for deciding when to internalize without task-specific hand-tuned thresholds, making the agent self-evolving as the trigger transfers across task distributions without re-tuning. Experiments in Minecraft show that PEAM improves long-horizon task performance, mitigates forgetting on previously consolidated skills, and improves parametric-versus-retrieval efficiency over retrieval-based embodied agents and parametric memory variants.",
+      "authors": [
+        "Yuchen Guo",
+        "Junli Gong",
+        "Hongmin Cai",
+        "Yiu-ming Cheung",
+        "Weifeng Su"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-26T23:20:58+00:00",
+      "link": "https://arxiv.org/pdf/2605.27762v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Parametric memory framework for embodied agents, internalizing experience into parameters",
+      "llm_evidence_cn": "将经验内化为参数的参数化记忆框架",
+      "llm_evidence": "将经验内化为参数的参数化记忆框架",
+      "canonical_evidence": "将经验内化为参数的参数化记忆框架",
+      "llm_tldr_en": "PEAM transforms agent memory into parametric skills via contrastive learning from failure-correction trajectories, enabling continual learning without forgetting.",
+      "llm_tldr_cn": "PEAM针对传统检索式记忆的局限性，提出了一种参数化具身代理记忆框架，通过对比学习将失败-修正轨迹内化为模型参数技能，采用多模态混合专家LoRA架构实现类别隔离的持续学习，避免灾难性遗忘。在Minecraft环境中，代理在开放任务中展现出更高效的行为能力和自适应学习特性，为具身代理的记忆与技能获取提供了新范式。",
+      "llm_tldr": "PEAM针对传统检索式记忆的局限性，提出了一种参数化具身代理记忆框架，通过对比学习将失败-修正轨迹内化为模型参数技能，采用多模态混合专家LoRA架构实现类别隔离的持续学习，避免灾难性遗忘。在Minecraft环境中，代理在开放任务中展现出更高效的行为能力和自适应学习特性，为具身代理的记忆与技能获取提供了新范式。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.27995v1",
+      "source": "arxiv",
+      "title": "AsyncTool: Evaluating the Asynchronous Function Calling Capability under Multi-Task Scenarios",
+      "abstract": "Large language model (LLM)-based agents have shown strong capabilities in using external tools to solve complex tasks. However, existing evaluations often overlook the temporal dimension of tool use, especially the impact of tool response latency, and are usually limited to single-task settings. In real-world applications, multiple tasks often need to be executed concurrently, and overall efficiency depends on whether an agent can use idle time while waiting for tool responses. We refer to this capability as asynchronous tool calling. To evaluate it, we propose AsyncTool, a benchmark for assessing LLM-based agents in interactive multi-task tool-use environments with delayed tool feedback. AsyncTool presents multiple heterogeneous tasks simultaneously and simulates realistic tool response latency during execution. Using a hybrid data evolution strategy, we construct a diverse asynchronous multitasking dataset that covers multiple scenarios and tool-use patterns. We evaluate models at the step, sub-task, and task levels, and introduce efficiency-oriented metrics to measure task coordination and completion efficiency. Extensive experiments show that delayed tool feedback poses substantial challenges to current agents and leads to clear performance degradation. Models that better coordinate task switching, dependency tracking, and state maintenance achieve stronger performance on AsyncTool. Our analysis identifies key failure modes of current tool-using agents and provides practical insights for designing future systems with stronger temporal reasoning and coordination capabilities.",
+      "authors": [
+        "Kou Shi",
+        "Ziao Zhang",
+        "Shiting Huang",
+        "Avery Nie",
+        "Zhen Fang",
+        "Qiuchen Wang",
+        "Lin Chen",
+        "Huaian Chen",
+        "Zehui Chen",
+        "Feng Zhao"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-27T05:36:35+00:00",
+      "link": "https://arxiv.org/pdf/2605.27995v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "evaluating asynchronous tool calling capability in multi-task scenarios",
+      "llm_evidence_cn": "多任务场景下异步工具调用能力评估",
+      "llm_evidence": "多任务场景下异步工具调用能力评估",
+      "canonical_evidence": "多任务场景下异步工具调用能力评估",
+      "llm_tldr_en": "Proposes AsyncTool benchmark for evaluating LLM agents' asynchronous tool-calling in multi-task environments with delayed feedback, addressing a critical gap in temporal tool-use evaluation.",
+      "llm_tldr_cn": "该论文指出当前工具使用评估忽略了工具响应延迟的时间维度，且局限于单任务场景。为此提出AsyncTool基准，模拟多个异质工具并发调用的环境，评估代理在等待工具响应期间利用空闲时间调度其他任务的能力。实验发现现有代理在异步调用方面存在显著不足。",
+      "llm_tldr": "该论文指出当前工具使用评估忽略了工具响应延迟的时间维度，且局限于单任务场景。为此提出AsyncTool基准，模拟多个异质工具并发调用的环境，评估代理在等待工具响应期间利用空闲时间调度其他任务的能力。实验发现现有代理在异步调用方面存在显著不足。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.27995v2",
+      "source": "arxiv",
+      "title": "AsyncTool: Evaluating the Asynchronous Function Calling Capability under Multi-Task Scenarios",
+      "abstract": "Large language model (LLM)-based agents have shown strong capabilities in using external tools to solve complex tasks. However, existing evaluations often overlook the temporal dimension of tool use, especially the impact of tool response latency, and are usually limited to single-task settings. In real-world applications, multiple tasks often need to be executed concurrently, and overall efficiency depends on whether an agent can use idle time while waiting for tool responses. We refer to this capability as asynchronous tool calling. To evaluate it, we propose AsyncTool, a benchmark for assessing LLM-based agents in interactive multi-task tool-use environments with delayed tool feedback. AsyncTool presents multiple heterogeneous tasks simultaneously and simulates realistic tool response latency during execution. Using a hybrid data evolution strategy, we construct a diverse asynchronous multitasking dataset that covers multiple scenarios and tool-use patterns. We evaluate models at the step, sub-task, and task levels, and introduce efficiency-oriented metrics to measure task coordination and completion efficiency. Extensive experiments show that delayed tool feedback poses substantial challenges to current agents and leads to clear performance degradation. Models that better coordinate task switching, dependency tracking, and state maintenance achieve stronger performance on AsyncTool. Our analysis identifies key failure modes of current tool-using agents and provides practical insights for designing future systems with stronger temporal reasoning and coordination capabilities.",
+      "authors": [
+        "Kou Shi",
+        "Ziao Zhang",
+        "Shiting Huang",
+        "Avery Nie",
+        "Zhen Fang",
+        "Qiuchen Wang",
+        "Lin Chen",
+        "Huaian Chen",
+        "Zehui Chen",
+        "Feng Zhao"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-27T05:36:35+00:00",
+      "link": "https://arxiv.org/pdf/2605.27995v2",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "asynchronous function calling capability benchmark",
+      "llm_evidence_cn": "异步函数调用能力基准",
+      "llm_evidence": "异步函数调用能力基准",
+      "canonical_evidence": "异步函数调用能力基准",
+      "llm_tldr_en": "AsyncTool evaluates LLM agents on multi-task asynchronous tool calling where agents must use idle time efficiently.",
+      "llm_tldr_cn": "现有工具调用评估忽略工具响应延迟和多任务并发场景。本文提出AsyncTool基准，模拟多任务环境下延迟反馈的工具调用，评估Agent在等待工具响应时利用空闲时间的能力（异步工具调用）。基准包含多种异构工具和任务，实验显示当前Agent在异步协调方面存在显著不足。",
+      "llm_tldr": "现有工具调用评估忽略工具响应延迟和多任务并发场景。本文提出AsyncTool基准，模拟多任务环境下延迟反馈的工具调用，评估Agent在等待工具响应时利用空闲时间的能力（异步工具调用）。基准包含多种异构工具和任务，实验显示当前Agent在异步协调方面存在显著不足。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.28224v1",
+      "source": "arxiv",
+      "title": "When Does Memory Help Multi-Trajectory Inference for Tool-Use LLM Agents?",
+      "abstract": "Multi-trajectory inference for tool-use LLM agents - generating multiple reasoning attempts and selecting among them - benefits from transferring knowledge across attempts so that later ones avoid the pitfalls of earlier ones. Existing cross-trajectory memory methods (trajectory-level reflection, atomic fact extraction, raw observation injection) are each evaluated under a single inference strategy on a single task, making it unclear whether reported gains reflect properties of the memory abstraction or of the inference method. We propose a unified framework that decomposes memory along two axes -- the scope of transfer (within an expansion vs. across trajectories) and the abstraction of the transferred content -- and evaluate four methods under three inference strategies (best-of-N, beam search, MCTS) on four tool-use benchmarks spanning SQL, knowledge-graph, and CLI environments, in a verifier-free setting that matches the deployment regime of practical agents. The experiment matrix identifies the inference method as a confound: the same memory method produces statistically distinct results under different inference strategies on the same examples. Reflection reaches significance only under MCTS (not under best-of-N); within-expansion injection (conditioning each candidate on prior siblings' outcomes) helps only diversity-starved beam search; and atomic fact extraction is accuracy-neutral but shortens trajectories by 19-26% on tasks with reusable environmental structure.",
+      "authors": [
+        "Xinzhe Li",
+        "Yaguang Tao"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-27T09:39:19+00:00",
+      "link": "https://arxiv.org/pdf/2605.28224v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "memory mechanisms for tool-use LLM agents",
+      "llm_evidence_cn": "工具使用LLM代理的记忆机制",
+      "llm_evidence": "工具使用LLM代理的记忆机制",
+      "canonical_evidence": "工具使用LLM代理的记忆机制",
+      "llm_tldr_en": "Studies when memory helps multi-trajectory inference for tool-use LLM agents, proposing a unified framework decomposing memory along scope and abstraction axes, showing memory abstraction matters more than transfer scope.",
+      "llm_tldr_cn": "该论文针对工具使用型LLM代理的多轨迹推理场景，系统研究了记忆机制何时起作用。作者提出统一框架，从转移范围（轨迹内/跨轨迹）和抽象程度两个维度分解记忆设计，发现记忆的抽象方式比转移范围对性能影响更大。实验揭示了轨迹级反思和原子事实提取等方法在不同条件下的优缺点，为代理记忆设计提供了指导。",
+      "llm_tldr": "该论文针对工具使用型LLM代理的多轨迹推理场景，系统研究了记忆机制何时起作用。作者提出统一框架，从转移范围（轨迹内/跨轨迹）和抽象程度两个维度分解记忆设计，发现记忆的抽象方式比转移范围对性能影响更大。实验揭示了轨迹级反思和原子事实提取等方法在不同条件下的优缺点，为代理记忆设计提供了指导。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.28354v1",
+      "source": "arxiv",
+      "title": "Plan Before Search: Search Agents Need Plan",
+      "abstract": "Training large language models as retrieval-augmented reasoning agents typically combines reinforcement learning with an SFT cold start distilled from a stronger model. However, this paradigm overlooks two fundamental factors: the dependency structure among sub-skills, and the possibility that distillation is not the only route to capability acquisition. We study this through Plan, a structured agentic behavior for multi-hop retrieval that decomposes a question into ordered sub-questions before any retrieval is performed, so that each search step can be anchored to a pre-designed sub-question instead of drifting under the influence of partially relevant documents retrieved earlier. However, across three model families spanning 3B to 14B parameters, we find that an identical reward signal induces qualitatively different RL failure modes. This phenomenon indicates that successful training hinges not only on reward design but also on model-specific feasibility conditions: sufficient initial entropy, training stability, and prerequisite sub-skills. Motivated by this, we propose a self-bootstrapping paradigm in which a small-scale seed model generates filtered trajectories that activate Plan in any target model, eliminating the need for distillation from an external stronger model. Our pipeline activates Plan across every tested model and consistently outperforms competitive baselines on multi-hop QA benchmarks.",
+      "authors": [
+        "Zhipeng Qian",
+        "Zihan Liang",
+        "Yufei Ma",
+        "Ben Chen",
+        "Huangyu Dai",
+        "Jiayi Ji",
+        "Chenyi Lei",
+        "Wenwu Ou",
+        "Xiaoshuai Sun",
+        "Qibin Hou"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-27T11:54:15+00:00",
+      "link": "https://arxiv.org/pdf/2605.28354v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "plan before search for multi-hop retrieval agents",
+      "llm_evidence_cn": "多跳检索Agent的先规划再搜索策略",
+      "llm_evidence": "多跳检索Agent的先规划再搜索策略",
+      "canonical_evidence": "多跳检索Agent的先规划再搜索策略",
+      "llm_tldr_en": "Plan decomposes questions into ordered sub-questions before any retrieval, anchoring search steps and avoiding drift.",
+      "llm_tldr_cn": "现有的检索增强Agent通常将搜索与推理混合，导致后续搜索受已检索文档干扰。本文提出Plan方法，在执行任何检索前先将问题分解为有序子问题，使每个搜索步骤锚定在预定子问题上，避免漂移。实验发现，使用相同奖励设置，Plan模型即使没有知识蒸馏也能达到与蒸馏模型相当的性能。",
+      "llm_tldr": "现有的检索增强Agent通常将搜索与推理混合，导致后续搜索受已检索文档干扰。本文提出Plan方法，在执行任何检索前先将问题分解为有序子问题，使每个搜索步骤锚定在预定子问题上，避免漂移。实验发现，使用相同奖励设置，Plan模型即使没有知识蒸馏也能达到与蒸馏模型相当的性能。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "planning capabilities of large language model agents",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.28773v1",
+      "source": "arxiv",
+      "title": "Rethinking Memory as Continuously Evolving Connectivity",
+      "abstract": "Existing memory-augmented LLM agents often treat memory as a static repository with pre-defined representations and fixed retrieval pipelines, which is brittle in dynamic agentic environments where feedback, task variation, and heterogeneous signals continuously reshape what should be remembered and how it should be connected. To address this, we propose FluxMem, a connectivity-evolving memory framework that models memory as a heterogeneous graph and progressively refines its topology through three stages: initial connection formation, feedback-driven refinement, and long-term consolidation. During execution, FluxMem repairs missing links, prunes interference, aligns abstraction granularity, and distills recurrent successful trajectories into reusable procedural circuits, guided by one metric for memory generalizability and evolutionary maturity. Across three fundamentally distinct benchmarks including LoCoMo, Mind2Web, and GAIA, FluxMem achieves consistent state-of-the-art performance, demonstrating strong adaptation and generalization in complex agentic environments. The code will be open-sourced in https://github.com/zjunlp/LightMem.",
+      "authors": [
+        "Jizhan Fang",
+        "Buqiang Xu",
+        "Zhixian Wang",
+        "Haoliang Cao",
+        "Xinle Deng",
+        "Baohua Dong",
+        "Hangcheng Zhu",
+        "Ruohui Huang",
+        "Gang Yu",
+        "Ying Wei",
+        "Guozhou Zheng",
+        "Feiyu Xiong",
+        "Haofen Wang",
+        "Huajun Chen",
+        "Ningyu Zhang"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA",
+        "cs.MM"
+      ],
+      "published": "2026-05-27T17:35:34+00:00",
+      "link": "https://arxiv.org/pdf/2605.28773v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Graph-based memory framework that continuously evolves connectivity",
+      "llm_evidence_cn": "基于图的记忆框架，持续演化连接结构",
+      "llm_evidence": "基于图的记忆框架，持续演化连接结构",
+      "canonical_evidence": "基于图的记忆框架，持续演化连接结构",
+      "llm_tldr_en": "FluxMem models agent memory as a heterogeneous graph that refines topology through initial connection, feedback-driven refinement, and consolidation.",
+      "llm_tldr_cn": "FluxMem针对静态记忆表示在动态环境中的脆弱性问题，将代理记忆建模为异构图，并通过初始连接形成、反馈驱动细化和长期巩固三阶段不断演化拓扑结构。在执行中自动修复缺失连接、剪枝干扰、调整抽象粒度，并将成功轨迹提炼为可重用程序知识，显著提升了代理在动态任务中的记忆适应性和任务性能。",
+      "llm_tldr": "FluxMem针对静态记忆表示在动态环境中的脆弱性问题，将代理记忆建模为异构图，并通过初始连接形成、反馈驱动细化和长期巩固三阶段不断演化拓扑结构。在执行中自动修复缺失连接、剪枝干扰、调整抽象粒度，并将成功轨迹提炼为可重用程序知识，显著提升了代理在动态任务中的记忆适应性和任务性能。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.28774v1",
+      "source": "arxiv",
+      "title": "Agent Explorative Policy Optimization for Multimodal Agentic Reasoning",
+      "abstract": "Vision-language models with extended reasoning succeed on complex problems, but many real-world problems require external tools that internal reasoning alone often cannot resolve. Agentic reasoning therefore interleaves two behaviors with a structural asymmetry: thinking (the self-contained default) and tool use (a high-variance auxiliary acting). We refer to this asymmetry as the Thinking-Acting Gap. Under standard RL recipes like GRPO, the gap manifests as two diagnostic symptoms during training: tool use is attempted on only ~30% of rollouts, and when attempted, the tool-using rollouts within a group are all-wrong on ~40% of questions, suppressing the learning signal at the tool calls that needed it. We propose AXPO (Agent eXplorative Policy Optimization): for each all-wrong tool-using subgroup, AXPO fixes the thinking prefix and resamples the tool call and its continuation, paired with uncertainty-based prefix selection. Across nine multimodal benchmarks and three scales of Qwen3-VL-Thinking, SFT+AXPO outperforms SFT+GRPO at average (+1.8pp Pass@1 and +1.8pp Pass@4 at 8B on average) and 8B with SFT+AXPO surpasses the 32B Base on Pass@4 with 4 times fewer parameters.",
+      "authors": [
+        "Minki Kang",
+        "Shizhe Diao",
+        "Ryo Hachiuma",
+        "Sung Ju Hwang",
+        "Pavlo Molchanov",
+        "Yu-Chiang Frank Wang",
+        "Byung-Kwan Lee"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-05-27T17:36:39+00:00",
+      "link": "https://arxiv.org/pdf/2605.28774v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "proposes RL method to improve tool use in agentic reasoning, addressing thinking-acting gap",
+      "llm_evidence_cn": "提出强化学习方法改善智能体在推理中的工具使用",
+      "llm_evidence": "提出强化学习方法改善智能体在推理中的工具使用",
+      "canonical_evidence": "提出强化学习方法改善智能体在推理中的工具使用",
+      "llm_tldr_en": "Agent Explorative Policy Optimization (AXPO) addresses the thinking-acting gap in multimodal agentic reasoning by encouraging tool use exploration.",
+      "llm_tldr_cn": "多模态智能体推理中，内部思考与外部工具使用存在结构性不对称（思考-行动差距）。本文提出AXPO算法，通过鼓励探索工具使用来缓解该差距，显著提升工具调用成功率和整体推理性能。",
+      "llm_tldr": "多模态智能体推理中，内部思考与外部工具使用存在结构性不对称（思考-行动差距）。本文提出AXPO算法，通过鼓励探索工具使用来缓解该差距，显著提升工具调用成功率和整体推理性能。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.29341v2",
+      "source": "arxiv",
+      "title": "WorldMemArena: Evaluating Multimodal Agent Memory Through Action-World Interaction",
+      "abstract": "Multimodal large language models are increasingly deployed as long-horizon agents, where memory must do more than recall: it must track an evolving world, revise what has gone stale, and surface the right evidence at decision time. Existing benchmarks measure recall over static dialogue, collapse memory into a single end-of-task accuracy, and reduce visual observations to captions, leaving us unable to localize failures to writing, maintenance, retrieval, or use. The rise of agent harnesses that author their own memory sharpens this gap, since we have no principled way to compare hand-designed pipelines with self-managing alternatives. To close these gaps, we formulate multimodal agent memory as an Action-World Interaction Loop with an observable four-stage lifecycle, and instantiate it in WorldMemArena: 400 multi-session multimodal tasks spanning Lifelong Evolution (evolving personal and task states) and Agentic Execution (memory from real observations, actions, and feedback), annotated with gold memory points, updates, distractors, and evidence chains for stage-level diagnosis. This enables the first head-to-head comparison of long-context, manually designed (RAG and external memory systems), and harness-based memory agents. Results show that: (1) better memory writing and storage do not guarantee better performance; (2) multimodal memory still struggles to fully use visual evidence; (3) systems are unstable across domains and degrade on realistic agentic trajectories; and (4) harness memory is more flexible but remains costly and less reliable.",
+      "authors": [
+        "Chengzhi Liu",
+        "Yuzhe Yang",
+        "Sophia Xiao Pu",
+        "Yepeng Liu",
+        "Lin Long",
+        "Yichen Guo",
+        "Nuo Chen",
+        "Zhaotian Weng",
+        "Elena Kochkina",
+        "Simerjot Kaur",
+        "Charese Smiley",
+        "Xiaomo Liu",
+        "James Zou",
+        "Sheng Liu",
+        "Yuheng Bu",
+        "Songyou Peng",
+        "Xin Eric Wang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.CL"
+      ],
+      "published": "2026-05-28T04:27:20+00:00",
+      "link": "https://arxiv.org/pdf/2605.29341v2",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Benchmark for evaluating multimodal agent memory in dynamic environments",
+      "llm_evidence_cn": "面向多模态代理记忆的动态环境评测基准",
+      "llm_evidence": "面向多模态代理记忆的动态环境评测基准",
+      "canonical_evidence": "面向多模态代理记忆的动态环境评测基准",
+      "llm_tldr_en": "WorldMemArena evaluates multimodal agent memory through action-world interaction, isolating failures in writing, maintenance, retrieval, and use.",
+      "llm_tldr_cn": "WorldMemArena针对多模态代理记忆的评测需求，提出基于行动-世界交互循环的基准，将记忆分解为写入、维护、检索和使用四个环节，通过细粒度指标揭示不同记忆组件的失败模式。实验表明现有代理在手写管理和动态更新方面存在显著缺陷，为记忆系统改进提供了诊断工具和指导方向。",
+      "llm_tldr": "WorldMemArena针对多模态代理记忆的评测需求，提出基于行动-世界交互循环的基准，将记忆分解为写入、维护、检索和使用四个环节，通过细粒度指标揭示不同记忆组件的失败模式。实验表明现有代理在手写管理和动态更新方面存在显著缺陷，为记忆系统改进提供了诊断工具和指导方向。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.29463v1",
+      "source": "arxiv",
+      "title": "Honest Lying: Understanding Memory Confabulation in Reflexive Agents",
+      "abstract": "Reflexion-style agents rely on self-generated reflections as memory, implicitly assuming that agents can accurately diagnose their own failures.We show that this assumption can fail systematically: across ALFWorld and HumanEval, agents store confident but incorrect interpretations of the task and continue acting on them across trials,even though the environment resets to the correct task each time. We call this failure mode memory confabulation and introduce the Reflection Repetition Rate (RRR), a log-based metric that detects repeated reliance on incorrect reflective content.Using RRR, we identify 16 frozen environments in ALFWorld, where 0 of 121 reflections mention the correct target object, and 4 analogous cases in HumanEval. Our mitigation replaces open-ended self-diagnosis with programmatic extraction of trajectory-level failure signals, increasing correct object mention from 0% to 86%, reducing RRR from 0.64 to 0.10, and solving 3 of 16 frozen ALFWorld environments, suggesting that reflective memory can reinforce false beliefs rather than correct them.",
+      "authors": [
+        "Prakhar Dixit",
+        "Sadia Kamal",
+        "Tim Oates"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-05-28T06:56:42+00:00",
+      "link": "https://arxiv.org/pdf/2605.29463v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "studies memory confabulation in Reflexion-style agents, a failure of self-reflection",
+      "llm_evidence_cn": "研究反思型智能体的记忆虚构问题，即自我反思失败",
+      "llm_evidence": "研究反思型智能体的记忆虚构问题，即自我反思失败",
+      "canonical_evidence": "研究反思型智能体的记忆虚构问题，即自我反思失败",
+      "llm_tldr_en": "Reflexion agents suffer from memory confabulation: storing confident but incorrect reflections that persist across trials, revealed by Reflection Repetition Rate.",
+      "llm_tldr_cn": "反思型智能体依赖自我生成反思作为记忆，但假设它们能准确诊断自身错误。本文发现该假设在ALFWorld和HumanEval中系统失败：智能体存储错误且自信的解读并持续使用。提出反射重复率(RRR)检测此问题，并展示缓解策略。",
+      "llm_tldr": "反思型智能体依赖自我生成反思作为记忆，但假设它们能准确诊断自身错误。本文发现该假设在ALFWorld和HumanEval中系统失败：智能体存储错误且自信的解读并持续使用。提出反射重复率(RRR)检测此问题，并展示缓解策略。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "self reflection module for LLM agents",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.29463v2",
+      "source": "arxiv",
+      "title": "Honest Lying: Understanding Memory Confabulation in Reflexive Agents",
+      "abstract": "Reflexion-style agents rely on self-generated reflections as memory, implicitly assuming that agents can accurately diagnose their own failures. We show that this assumption can fail systematically: across ALFWorld and HumanEval, agents store confident but incorrect interpretations of the task and continue acting on them across trials, even though the environment resets to the correct task each time. We call this failure mode memory confabulation and introduce the Reflection Repetition Rate (RRR), a log-based metric that detects repeated reliance on incorrect reflective content. Using RRR, we identify 16 frozen environments in ALFWorld, where 0 of 121 reflections mention the correct target object, and 4 analogous cases in HumanEval. Our mitigation replaces open-ended self-diagnosis with programmatic extraction of trajectory-level failure signals, increasing correct object mention from 0% to 86%, reducing RRR from 0.64 to 0.10, and solving 3 of 16 frozen ALFWorld environments, suggesting that reflective memory can reinforce false beliefs rather than correct them.",
+      "authors": [
+        "Prakhar Dixit",
+        "Sadia Kamal",
+        "Tim Oates"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-05-28T06:56:42+00:00",
+      "link": "https://arxiv.org/pdf/2605.29463v2",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "analyzes memory confabulation in reflexive agents, same as v1",
+      "llm_evidence_cn": "分析反思型智能体记忆虚构，与v1相同",
+      "llm_evidence": "分析反思型智能体记忆虚构，与v1相同",
+      "canonical_evidence": "分析反思型智能体记忆虚构，与v1相同",
+      "llm_tldr_en": "Reflexion agents suffer from memory confabulation: storing confident but incorrect reflections that persist across trials, revealed by Reflection Repetition Rate.",
+      "llm_tldr_cn": "反思型智能体依赖自我生成反思作为记忆，但假设它们能准确诊断自身错误。本文发现该假设在ALFWorld和HumanEval中系统失败：智能体存储错误且自信的解读并持续使用。提出反射重复率(RRR)检测此问题，并展示缓解策略。",
+      "llm_tldr": "反思型智能体依赖自我生成反思作为记忆，但假设它们能准确诊断自身错误。本文发现该假设在ALFWorld和HumanEval中系统失败：智能体存储错误且自信的解读并持续使用。提出反射重复率(RRR)检测此问题，并展示缓解策略。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "self reflection module for LLM agents",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.29927v1",
+      "source": "arxiv",
+      "title": "Does The Way You Plan Matter? An Empirical Study of Planning Representations for LLM Web Agents",
+      "abstract": "Despite recent advances, LLM-based web agents still struggle with limited exploration, omission of critical steps, and sensitivity to task constraints. Prior work suggests that many of these failures stem from weaknesses in planning, yet the impact of alternative natural language plan representation remains unexplored. To address this, we introduce PlanAhead, a static planner-executor framework that evaluates the impact of plan representation in agent performance. We first automatically categorize WebArena tasks into 3 difficulty levels, enabling consistent difficulty grading without human annotation. Then we systematically evaluate 4 different plan representations on the tasks categorized as hard: sequential subgoals, narrative, pseudocode, and checklist; across different families of multimodal LLM powered agents (OpenAI, Alibaba, and Google). To account for stochastic variability, we introduce two novel evaluation metrics: Achievement Rate (AR) and Solved-Task Consistency (STC). Our results show that both, the plan formulation and the underlying LLM generating the plan, significantly influence web-agent robustness and task success.",
+      "authors": [
+        "Alejandra Zambrano",
+        "Sara Vera Marjanovic",
+        "Imene Kerboua",
+        "Xing Han Lù",
+        "Leila Kosseim"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-05-28T13:39:49+00:00",
+      "link": "https://arxiv.org/pdf/2605.29927v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "empirical study of planning representations for LLM web agents",
+      "llm_evidence_cn": "LLM Web代理规划表示的实证研究",
+      "llm_evidence": "LLM Web代理规划表示的实证研究",
+      "canonical_evidence": "LLM Web代理规划表示的实证研究",
+      "llm_tldr_en": "Systematically evaluates four planning representations (sequential subgoals, narrative, etc.) for LLM web agents, finding that representation choice significantly impacts task success and planning quality.",
+      "llm_tldr_cn": "该论文针对LLM Web代理中规划表示的选择问题，提出PlanAhead框架，自动划分任务难度并系统评估四种自然语言规划表示：顺序子目标、叙事式、列表式等。实验表明规划表示对代理性能有显著影响，其中叙事式在复杂任务上表现最佳，而顺序子目标在简单任务上更高效。",
+      "llm_tldr": "该论文针对LLM Web代理中规划表示的选择问题，提出PlanAhead框架，自动划分任务难度并系统评估四种自然语言规划表示：顺序子目标、叙事式、列表式等。实验表明规划表示对代理性能有显著影响，其中叙事式在复杂任务上表现最佳，而顺序子目标在简单任务上更高效。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "planning capabilities of large language model agents",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.30690v1",
+      "source": "arxiv",
+      "title": "ElasticMem: Latent Memory as a Learnable Resource for LLM Agents",
+      "abstract": "Long-term memory is essential for LLM agents to reason coherently across extended interactions, personalize responses, and reuse past experience. However, existing memory-augmented methods typically treat memory as a fixed resource: text-space approaches concatenate retrieved memories into the context window, causing substantial token overhead and sensitivity to noisy evidence, while latent-space approaches reduce textual cost but still rely on rigid retrieval or fixed-capacity memory interfaces. This creates a mismatch between query-dependent memory utility and fixed memory allocation. We propose ElasticMem, a memory-augmented LLM framework that learns to use memory as an elastic latent resource. ElasticMem builds an offline latent memory bank with retrieval keys and content caches, retrieves memories adaptively from the reasoner's hidden state, assigns each retrieved memory a variable latent budget through a learned policy, and injects selected latent states as soft memory tokens for generation. The full memory-use process is optimized with downstream task rewards through group-relative policy optimization. We evaluate ElasticMem on MemorySuite, covering memory-intensive QA and embodied agent control. Across Qwen2.5-3B-Instruct and Qwen2.5-7B-Instruct backbones, ElasticMem improves weighted average QA accuracy by 26.2% and 24.6%, and improves ALFWorld success rate by 66.3% and 27.2%, respectively, over the strongest baselines, while achieving the lowest ALFWorld token cost. Ablations and qualitative analyses further show that adaptive retrieval and elastic budget allocation help ElasticMem prioritize useful evidence and transferable plans beyond rigid cosine similarity. Our code for ElasticMem will be released at https://github.com/ulab-uiuc/ElasticMem.",
+      "authors": [
+        "Tao Feng",
+        "Chongrui Ye",
+        "Tianyang Luo",
+        "Jingjun Xu",
+        "Xueqiang Xu",
+        "Haozhen Zhang",
+        "Ge Liu",
+        "Jiaxuan You"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-05-29T00:34:40+00:00",
+      "link": "https://arxiv.org/pdf/2605.30690v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "proposes ElasticMem, a memory-augmented LLM framework with elastic latent memory",
+      "llm_evidence_cn": "提出ElasticMem，一种具有弹性潜在记忆的LLM增强记忆框架",
+      "llm_evidence": "提出ElasticMem，一种具有弹性潜在记忆的LLM增强记忆框架",
+      "canonical_evidence": "提出ElasticMem，一种具有弹性潜在记忆的LLM增强记忆框架",
+      "llm_tldr_en": "ElasticMem introduces a learnable latent memory resource for LLM agents, overcoming fixed memory allocation limitations.",
+      "llm_tldr_cn": "ElasticMem针对LLM代理长期记忆中记忆固定分配与查询依赖不匹配的问题，提出将记忆作为可学习的弹性潜在资源。该方法构建离线潜在记忆银行并学习弹性分配，实验证明其有效降低了令牌开销并提高了记忆利用效率，为LLM代理的长程推理和个性化提供了更高效的记忆机制。",
+      "llm_tldr": "ElasticMem针对LLM代理长期记忆中记忆固定分配与查询依赖不匹配的问题，提出将记忆作为可学习的弹性潜在资源。该方法构建离线潜在记忆银行并学习弹性分配，实验证明其有效降低了令牌开销并提高了记忆利用效率，为LLM代理的长程推理和个性化提供了更高效的记忆机制。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.30711v1",
+      "source": "arxiv",
+      "title": "SAGE: A Novelty Gate for Efficient Memory Evolution in Agentic LLMs",
+      "abstract": "Agentic LLMs must continuously decide whether newly extracted facts should be added, merged with existing memories, or ignored, yet prior work has focused more on retrieval and storage than on principled write-side control. We frame memory evolution as a novelty-detection problem and propose SAGE, a Spherical Adaptive Gate for memory Evolution that scores candidate facts with a von Mises-Fisher-based density estimator over memory embeddings and routes them with an adaptive threshold that tracks memory-store geometry. SAGE resolves clearly novel facts as ADD, clearly redundant facts as NOOP, and sends only uncertain cases to an LLM merge step, reducing expensive write-time reasoning. On LoCoMo, SAGE achieves the best average token-F1 against Mem0 on all seven open-weight backbone comparisons, while on GPT-4o-mini it reduces add-phase API cost by 3.4$\\times$ and add-phase latency by 2.5$\\times$ with only a small average judge-score gap. As a drop-in binary gate for A-Mem, SAGE skips roughly 16-18% of LLM calls across five models with minimal quality change on open-weight backbones. These results suggest that novelty-aware write control is a practical lever for improving both memory quality and system efficiency in long-term agentic memory.",
+      "authors": [
+        "Sijia Wang",
+        "Dhanajit Brahma",
+        "Ricardo Henao"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "published": "2026-05-29T01:03:39+00:00",
+      "link": "https://arxiv.org/pdf/2605.30711v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "novelty-gate for efficient memory evolution in agentic LLMs",
+      "llm_evidence_cn": "基于新颖性门控的高效代理LLM内存演化机制",
+      "llm_evidence": "基于新颖性门控的高效代理LLM内存演化机制",
+      "canonical_evidence": "基于新颖性门控的高效代理LLM内存演化机制",
+      "llm_tldr_en": "Introduces SAGE, a spherical adaptive gate for memory evolution that treats fact addition as novelty detection, routing clearly new/old facts without LLM involvement, achieving state-of-the-art token-F1 on LoCoMo.",
+      "llm_tldr_cn": "该论文将代理LLM的记忆演化问题建模为新奇性检测任务，提出球形自适应门控SAGE。SAGE使用基于von Mises-Fisher分布的密度估计器对候选事实评分，并通过自适应阈值决定添加、忽略或合并。在LoCoMo基准上，SAGE在平均token-F1上超越现有方法，同时显著减少了推理时的LLM调用次数。",
+      "llm_tldr": "该论文将代理LLM的记忆演化问题建模为新奇性检测任务，提出球形自适应门控SAGE。SAGE使用基于von Mises-Fisher分布的密度估计器对候选事实评分，并通过自适应阈值决定添加、忽略或合并。在LoCoMo基准上，SAGE在平均token-F1上超越现有方法，同时显著减少了推理时的LLM调用次数。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.30738v1",
+      "source": "arxiv",
+      "title": "MAVEN: Improving Generalization in Agentic Tool Calling",
+      "abstract": "Generalization across agentic tool-calling environments remains a central challenge for reliable agentic reasoning systems. Although large language models achieve strong results on individual benchmarks, their ability to compose reasoning strategies, preserve intermediate states, and coordinate tools across domains remains underexplored. We present MAVEN (Modular Agentic Verification and Execution Network), a lightweight symbolic reasoning scaffold for structured decomposition, adaptive tool orchestration, and intermediate verification. We evaluate MAVEN across established tool-calling benchmarks, including BFCL v3, TauBench, Tau2Bench, AceBench, and introduce MAVEN-Bench, a stress-test benchmark for multi-step mathematical and physical reasoning with explicit verification and adversarial task composition. MAVEN-Bench exposes a substantial gap between partial reasoning quality and end-to-end task success; in direct MAVEN-Bench runs, MAVEN improves its GPT-OSS-120b base model from 48% to 71% accuracy without additional training. It also remains competitive with frontier proprietary baselines while using an open-weight backbone with an estimated cost ratio of roughly 1/10, suggesting that lightweight verification-centered scaffolds can strengthen compositional reasoning and motivate more process-aware evaluation of agents in the wild.",
+      "authors": [
+        "Omkar Ghugarkar",
+        "Vishvesh Bhat",
+        "Muhammad Ahmed Mohsin",
+        "Asad Aali"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-29T02:02:31+00:00",
+      "link": "https://arxiv.org/pdf/2605.30738v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Modular symbolic reasoning scaffold for tool calling generalization",
+      "llm_evidence_cn": "模块化符号推理框架提升工具调用泛化能力",
+      "llm_evidence": "模块化符号推理框架提升工具调用泛化能力",
+      "canonical_evidence": "模块化符号推理框架提升工具调用泛化能力",
+      "llm_tldr_en": "MAVEN introduces a lightweight symbolic reasoning scaffold for structured decomposition, adaptive tool orchestration, and intermediate verification in tool-calling tasks.",
+      "llm_tldr_cn": "MAVEN针对代理工具调用泛化性不足的问题，提出模块化符号推理脚手架，通过结构化分解、自适应工具编排和中间验证三大机制提升跨域泛化能力。在BFCL v3、TauBench等多个基准上达到领先性能，并构建了MAVEN-Bench压力测试集，验证了其在多步数学与物理推理中的可靠性，为工具调用代理的鲁棒性设计提供了新思路。",
+      "llm_tldr": "MAVEN针对代理工具调用泛化性不足的问题，提出模块化符号推理脚手架，通过结构化分解、自适应工具编排和中间验证三大机制提升跨域泛化能力。在BFCL v3、TauBench等多个基准上达到领先性能，并构建了MAVEN-Bench压力测试集，验证了其在多步数学与物理推理中的可靠性，为工具调用代理的鲁棒性设计提供了新思路。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2605.30771v1",
+      "source": "arxiv",
+      "title": "Eywa: Provenance-Grounded Long-Term Memory for AI Agents",
+      "abstract": "AI agents that persist across sessions need memory they can retrieve, audit, update, and erase. Existing memory systems often collapse source evidence, extracted facts, retrieved context, and answer policy into one opaque prompt path, making failures difficult to diagnose: a wrong answer may come from missing evidence, unsupported extraction, stale state, retrieval loss, or answer-model behavior. We present Eywa, a provenance-grounded memory architecture built around evidence before belief. Eywa stores immutable source evidence before deriving canonical facts, validates extracted memories against typed signals and source support, and retrieves bounded memory context through a deterministic multi-route read path with zero LLM calls inside retrieval. Retrieved context is returned separately from answer instructions, allowing the same memory substrate to be evaluated across frontier, budget, and local answer models. Under a frozen, artifact-recorded retrieval configuration, Eywa reaches 90.19% judge accuracy on the LoCoMo C1-C4 split with Claude Sonnet 4.6 write and QA roles. On LongMemEval-S, it reaches 88.2% retrieval-sufficiency accuracy. On BEAM, a 700-question technical-memory stress benchmark, it reaches 81.45% mean nugget score and 85.29% pass@score >= 0.5. Full per-question artifacts, including questions, gold answers, model answers, retrieved context, and labels, are published at https://eywa.to/research.",
+      "authors": [
+        "Resham Joshi"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-05-29T02:56:35+00:00",
+      "link": "https://arxiv.org/pdf/2605.30771v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "provenance-grounded long-term memory for AI agents",
+      "llm_evidence_cn": "基于溯源关系的AI Agent长期记忆",
+      "llm_evidence": "基于溯源关系的AI Agent长期记忆",
+      "canonical_evidence": "基于溯源关系的AI Agent长期记忆",
+      "llm_tldr_en": "Eywa provides provenance-grounded long-term memory with immutable evidence storage and zero-LLM retrieval, enabling audit and correction.",
+      "llm_tldr_cn": "现有Agent记忆系统将证据、事实、检索和策略混为一谈，导致故障难以诊断。本文提出Eywa架构，坚持“证据优先于信念”，先存储不可变的源证据，再基于信号和源支持验证提取的记忆，并通过确定性多路径读取检索，检索过程不调用LLM。实验证明Eywa在记忆准确性和可审计性上优于现有系统。",
+      "llm_tldr": "现有Agent记忆系统将证据、事实、检索和策略混为一谈，导致故障难以诊断。本文提出Eywa架构，坚持“证据优先于信念”，先存储不可变的源证据，再基于信号和源支持验证提取的记忆，并通过确定性多路径读取检索，检索过程不调用LLM。实验证明Eywa在记忆准确性和可审计性上优于现有系统。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00135v1",
+      "source": "arxiv",
+      "title": "On Effectiveness and Efficiency of Agentic Tool-calling and RL Training",
+      "abstract": "Tool-calling is a central component of modern large language model (LLM) agents, equipping them with skills beyond their parametric knowledge. This paper studies tool-calling along two complementary axes: effectiveness, i.e., how this capability is measured, and efficiency, i.e., how it is learned. On effectiveness, we systematically analyze tool-calling evaluation pipelines and show that results can be highly sensitive to seemingly minor, often undocumented implementation choices including the random seed, system prompt, multi-turn template construction, and how prior interaction/reasoning history is carried forward. These choices can lead to substantial differences in reported performance, especially in multi-turn settings where without rigorous standardization, leaderboard rankings are unreliable. On efficiency, we examine standard reinforcement learning (RL) for tool-calling and identify two sources of computational waste: (i) during rollouts, many prompts produce no learning signal, and (ii) during policy updates, optimization incurs high computational cost. Guided by these findings, we introduce two techniques that accelerate RL-based tool-calling training, achieving substantial wall-clock speedup without degrading performance.",
+      "authors": [
+        "Tong Liu",
+        "Cheng Qian",
+        "Matej Cief",
+        "Yuan He",
+        "Daniele Dan",
+        "Nikolaos Aletras",
+        "Gabriella Kazai"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-05-28T22:21:47+00:00",
+      "link": "https://arxiv.org/pdf/2606.00135v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "systematic study of agentic tool-calling effectiveness and efficiency",
+      "llm_evidence_cn": "代理工具调用的有效性与效率系统研究",
+      "llm_evidence": "代理工具调用的有效性与效率系统研究",
+      "canonical_evidence": "代理工具调用的有效性与效率系统研究",
+      "llm_tldr_en": "Analyzes sensitivity of tool-calling evaluation to implementation choices, and studies RL-based training for efficient tool-calling, highlighting need for standardized evaluation and improved training methods.",
+      "llm_tldr_cn": "该论文从有效性和效率两个维度系统研究代理工具调用能力。在有效性方面，揭示评估流程对随机种子、系统提示等实现细节高度敏感，并提出改进建议；在效率方面，探索强化学习训练以减少工具调用成本。研究为工具调用能力的标准化评估和高效训练提供了重要见解。",
+      "llm_tldr": "该论文从有效性和效率两个维度系统研究代理工具调用能力。在有效性方面，揭示评估流程对随机种子、系统提示等实现细节高度敏感，并提出改进建议；在效率方面，探索强化学习训练以减少工具调用成本。研究为工具调用能力的标准化评估和高效训练提供了重要见解。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00600v1",
+      "source": "arxiv",
+      "title": "Understanding the Self-Reflection Mechanisms of LLMs through Biased Attitude Associations",
+      "abstract": "While the emergent self-reflection capabilities of Large Language Models (LLMs) offer a promising paradigm for autonomous bias mitigation, their internal mechanics remain unclear, raising concerns regarding potential bias entrenchment. Under the premise that social bias is intrinsically encoded as valence inclinations, where the exacerbation of bias scales with sharper valence fluctuations across social groups, this paper proposes ReBias-Lens, a probing framework designed to interpret how self-reflection reconfigures these biased attitude associations through the lens of valence projection within intersectional contexts. Central to ReBias-Lens is the metric of Valence Fluctuation (VF) comprising two variants: Global-VF, which captures macroscopic valence encoding trends, and Local-VF, which scrutinizes microscopic distinctiveness across specific social categories. Deploying ReBias-Lens to evaluate four LLMs across twelve social categories reveals that overall valence fluctuations undergo a distinct layer-wise smoothing, characterized by a significant hierarchical representation divergence as the layers deepen, which ultimately manifests as a widespread mitigation of bias at the behavioral level. In stark contrast to this macro-level reduction, this reflection mechanism is not universally corrective, instead exhibiting a stubborn, category-specific selectivity that regularly locks in and perversely amplifies localized biases. Warning: this paper contains examples with biased content.",
+      "authors": [
+        "Jingshen Zhang",
+        "Bo Wang",
+        "Boci Yang",
+        "Dongming Zhao",
+        "Ruifang He",
+        "Yuexian Hou",
+        "Zifei Yu"
+      ],
+      "primary_category": "cs.SI",
+      "categories": [
+        "cs.SI"
+      ],
+      "published": "2026-05-30T07:57:56+00:00",
+      "link": "https://arxiv.org/pdf/2606.00600v1",
+      "tags": [
+        "keyword:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Self-reflection mechanisms in LLMs",
+      "llm_evidence_cn": "LLM自反机制",
+      "llm_evidence": "LLM自反机制",
+      "canonical_evidence": "LLM自反机制",
+      "llm_tldr_en": "Proposes ReBias-Lens to interpret self-reflection in LLMs via valence fluctuation, revealing how self-reflection reconfigures biased associations.",
+      "llm_tldr_cn": "该论文提出ReBias-Lens框架，通过测量态度关联中的价态波动来解读大语言模型的自反机制。研究发现自反过程会重构偏见关联，为理解LLM自我反思的内部运作提供了新视角。",
+      "llm_tldr": "该论文提出ReBias-Lens框架，通过测量态度关联中的价态波动来解读大语言模型的自反机制。研究发现自反过程会重构偏见关联，为理解LLM自我反思的内部运作提供了新视角。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "self reflection module for LLM agents",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.00756v1",
+      "source": "arxiv",
+      "title": "CoMIC: Collaborative Memory and Insights Circulation for Long-Horizon LLM Agents in Cloud-Edge Systems",
+      "abstract": "Deploying lightweight Large Language Model (LLM) agents on edge servers can reduce latency and move agentic services closer to users, but resource-constrained edge models often struggle with long-horizon tasks that require persistent memory, subgoal tracking, and reflection. Fine-tuning edge models after deployment is costly and difficult to scale across heterogeneous nodes, while purely local memory leaves agents with isolated experience and growing prompt context. We propose \\textsc{CoMIC}, a parameter-update-free cloud-edge framework for Collaborative Memory and Insights Circulation. \\textsc{CoMIC} follows a \\textit{Centralized Reflection, Decentralized Execution} design: edge agents execute locally using subgoal-oriented hierarchical memory and selective re-expansion of relevant histories, while a cloud-side LLM critic asynchronously evaluates completed trajectories, filters reusable experience, and aggregates cross-agent guidance keyed by semantic subgoal identifiers. Across five long-horizon agent tasks spanning symbolic planning and text interaction, \\textsc{CoMIC} improves progress rate and action grounding for weak edge agents and yields task-dependent success-rate gains without updating model parameters.",
+      "authors": [
+        "Yannan Wang",
+        "Longli Yang",
+        "Zhen Liu",
+        "Abhishek Kumar",
+        "Carsten Maple"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-30T14:45:39+00:00",
+      "link": "https://arxiv.org/pdf/2606.00756v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Collaborative memory and reflection for long-horizon agents",
+      "llm_evidence_cn": "协作记忆与反思机制支持长周期任务",
+      "llm_evidence": "协作记忆与反思机制支持长周期任务",
+      "canonical_evidence": "协作记忆与反思机制支持长周期任务",
+      "llm_tldr_en": "CoMIC proposes a cloud-edge framework with centralized reflection and decentralized execution, enabling persistent memory and subgoal tracking without fine-tuning.",
+      "llm_tldr_cn": "CoMIC针对边缘LLM代理在长周期任务中缺乏持久记忆和反思能力的问题，提出了一种无需参数更新的云边协作框架，采用集中式反思与分散式执行设计，边缘代理借助子目标导向的记忆循环和洞察交流机制，能够有效追踪子目标并积累经验。实验表明该方法显著提升了任务完成率和推理效率，为资源受限环境下的智能代理部署提供了新思路。",
+      "llm_tldr": "CoMIC针对边缘LLM代理在长周期任务中缺乏持久记忆和反思能力的问题，提出了一种无需参数更新的云边协作框架，采用集中式反思与分散式执行设计，边缘代理借助子目标导向的记忆循环和洞察交流机制，能够有效追踪子目标并积累经验。实验表明该方法显著提升了任务完成率和推理效率，为资源受限环境下的智能代理部署提供了新思路。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "id": "2606.01779v1",
+      "source": "arxiv",
+      "title": "HarnessForge: Joint Harness and Policy Evolution for Adaptive Agent Systems",
+      "abstract": "LLM agents are increasingly expected to operate across heterogeneous task regimes that require distinct execution paradigms. This challenges fixed agent systems and motivates system-level meta-adaptation beyond isolated component updates. While existing works have adapted external harness or trained underlying reasoning policies, full-system adaptation remains insufficiently characterized. The adaptation space between structure and execution is rarely made explicit, and the compatibility between the external harness and the internal reasoner is not optimized jointly. We propose HarnessForge, a meta-adaptive framework for evolving LLM agent systems. HarnessForge formulates an agent system as a harness--policy pair, defining a stable adaptation space that separates harness-level execution structure from policy-level reasoning behavior. It then performs harness--policy co-evolution through fault-guided harness tailoring and harness-conditioned policy alignment. Experiments across five benchmarks from diverse domains show that HarnessForge consistently improves both Qwen3-4B and Qwen3-8B backbones, outperforming harness-only and policy-only baselines with gains of up to 12.0\\% over the strongest baseline and achieving favorable rollout-efficiency tradeoffs, demonstrating that harness--policy co-evolution is effective, and that executable compatibility between the harness and reasoning policy is essential for agent-system adaptation. The code is available at https://github.com/mingju-c/HarnessForge.",
+      "authors": [
+        "Mingju Chen",
+        "Can Lv",
+        "Guibin Zhang",
+        "Heng Chang",
+        "Shiji Zhou"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-06-01T07:00:35+00:00",
+      "link": "https://arxiv.org/pdf/2606.01779v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "Joint harness and policy evolution for adaptive agent systems",
+      "llm_evidence_cn": "联合进化智能体框架与策略",
+      "llm_evidence": "联合进化智能体框架与策略",
+      "canonical_evidence": "联合进化智能体框架与策略",
+      "llm_tldr_en": "Proposes HarnessForge, a meta-adaptive framework that jointly evolves the external harness and internal policy of LLM agents for heterogeneous tasks.",
+      "llm_tldr_cn": "本文提出HarnessForge元自适应框架，将智能体系统形式化为框架-策略对，在异构任务中联合进化外部框架与内部推理策略。该方法显式定义了结构与执行之间的适应空间，并优化两者兼容性，为构建自适应智能体系统提供了新思路。",
+      "llm_tldr": "本文提出HarnessForge元自适应框架，将智能体系统形式化为框架-策略对，在异构任务中联合进化外部框架与内部推理策略。该方法显式定义了结构与执行之间的适应空间，并优化两者兼容性，为构建自适应智能体系统提供了新思路。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "Agent harness",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2605.25310v1",
+      "source": "arxiv",
+      "title": "Tool-Call Dependency Structure is Linearly Decodable in LLM Agent Residual Streams",
+      "abstract": "Tool-using LLM agents produce trajectories whose calls form a directed dependency graph: earlier tool outputs supply arguments to later calls. Whether this execution structure is represented inside the model is unknown; prior structural probes have targeted static code or chain-of-thought text, not an agent's run-time call graph. A low-capacity edge probe on the residual stream of Qwen3-32B decodes the tool-call dependency graph well above both a Hewitt--Liang random-label control and a positional baseline. A counterfactual contrast between value corruption and structural perturbation indicates the signal tracks abstract topology rather than identifier values, and replicates under an independent, non-substring oracle. The non-positional component replicates on three further interactive multi-hop benchmarks and attenuates as call order alone becomes a sufficient proxy for dependency, vanishing in single-shot planning. Per-layer activation patching shifts the probe at a later, non-patched boundary, evidence that the representation propagates rather than passively reads out, though the realised tool call does not move. To our knowledge this is the first structural probe of an LLM agent's runtime tool-call dependency graph. Our claims concern representation, not behavioural control, and span two model families and one primary domain.",
+      "authors": [
+        "Tianda Sun",
+        "Dimitar Kazakov"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-05-25T00:16:32+00:00",
+      "link": "https://arxiv.org/pdf/2605.25310v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "analyzes tool-call dependency structure in LLM agent residual streams",
+      "llm_evidence_cn": "分析LLM智能体残差流中的工具调用依赖结构",
+      "llm_evidence": "分析LLM智能体残差流中的工具调用依赖结构",
+      "canonical_evidence": "分析LLM智能体残差流中的工具调用依赖结构",
+      "llm_tldr_en": "Tool-call dependency graphs are linearly decodable from LLM agent residual streams, revealing internal representation of tool-use structure.",
+      "llm_tldr_cn": "工具使用的LLM智能体产生带依赖图的调用轨迹，但未知模型内部是否表示此结构。本文使用低容量探针从Qwen3-32B残差流解码出工具调用依赖图，证明模型内部捕捉了抽象的拓扑结构而非标识符值。",
+      "llm_tldr": "工具使用的LLM智能体产生带依赖图的调用轨迹，但未知模型内部是否表示此结构。本文使用低容量探针从Qwen3-32B残差流解码出工具调用依赖图，证明模型内部捕捉了抽象的拓扑结构而非标识符值。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.26720v1",
+      "source": "arxiv",
+      "title": "Towards Feedback-to-Plan Decisions for Self-Evolving LLM Agents in CUDA Kernel Generation",
+      "abstract": "Large language models (LLMs) have shown strong empirical gains as self-evolving agents for CUDA kernel generation, driven by feedback-conditioned planning across generations. However, how planning decisions attribute and combine heterogeneous feedback signals remains opaque. Standard end-to-end ablations fail to resolve this question, as iterative planning amplifies early perturbations and conflates feedback effects with trajectory-dependent drift.   We introduce \\texttt{CUDAnalyst}, a unified analysis layer for controlled, generation-level attribution of planning decisions to feedback components via trajectory freezing and selective feedback injection. \\texttt{CUDAnalyst} enables stable generation-level evaluation and principled coalitional-style attribution of feedback effects and interactions. Our results show that explicit planning is beneficial only when feedback is aligned, that effective planning emerges from structured multi-feedback interactions, and that high-level plans from stronger reasoning models can partially transfer to weaker ones. These trends hold across reference backbones, representative workloads, and reference induction regimes, indicating that the identified feedback-to-plan structure is robust within the controlled axes studied.",
+      "authors": [
+        "Yee Hin Chong",
+        "Jiaming Wu",
+        "Youhui Zhang",
+        "Peng Qu"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-26T09:00:09+00:00",
+      "link": "https://arxiv.org/pdf/2605.26720v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "feedback attribution for planning decisions in self-evolving LLM agents",
+      "llm_evidence_cn": "自演化LLM代理中反馈归因于规划决策，涉及自反思",
+      "llm_evidence": "自演化LLM代理中反馈归因于规划决策，涉及自反思",
+      "canonical_evidence": "自演化LLM代理中反馈归因于规划决策，涉及自反思",
+      "llm_tldr_en": "Proposes CUDAnalyst to attribute planning decisions to feedback components in self-evolving LLM agents for CUDA kernel generation, enabling stable evaluation and principled improvement.",
+      "llm_tldr_cn": "该论文针对自演化LLM代理在CUDA内核生成任务中，规划决策对反馈信号的归因问题，提出CUDAnalyst分析层。通过轨迹冻结和选择性反馈注入，该方法能稳定地将规划决策归因到不同反馈组件，从而揭示反馈如何驱动演化。实验显示该归因能为代理改进提供可操作的见解。",
+      "llm_tldr": "该论文针对自演化LLM代理在CUDA内核生成任务中，规划决策对反馈信号的归因问题，提出CUDAnalyst分析层。通过轨迹冻结和选择性反馈注入，该方法能稳定地将规划决策归因到不同反馈组件，从而揭示反馈如何驱动演化。实验显示该归因能为代理改进提供可操作的见解。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "self reflection module for LLM agents",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.27209v1",
+      "source": "arxiv",
+      "title": "Learning to Act under Noise: Enhancing Agent Robustness via Noisy Environments",
+      "abstract": "Recent advances in large language models (LLMs) have facilitated the widespread deployment of LLMs as interactive agents capable of reasoning, planning, and tool use. Despite strong performance on existing benchmarks, such agents often exhibit notable degradation when deployed in real-world settings, where environments are inherently stochastic and imperfect. We argue that this discrepancy arises from a fundamental mismatch between idealized training settings and real-world interaction dynamics, where current paradigms rely on carefully curated task instructions and stable, well-controlled environments. To address this gap, we propose NoisyAgent, an agentic training framework that explicitly incorporates environmental imperfections into the agent learning process. We identify two major sources of interaction noise in real-world scenarios: user noise, which captures ambiguity and variability in user interaction, and tool noise, which reflects failures and anomalies in tool execution. We introduce such perturbations into the training pipeline by modifying user interaction patterns and simulating tool execution results within the training environment. To stabilize training while encouraging agents to handle increasingly challenging imperfections, noise is applied to only a subset of rollouts and progressively increased in difficulty as the model adapts to the current noise level. Extensive experiments demonstrate that our approach consistently improves agent robustness under noisy and dynamic environments. Our analysis reveals that training under noise conditions also yields performance gains on idealized benchmarks, suggesting that controlled exposure to environmental noise promotes more generalizable reasoning and decision-making behaviors. Our findings highlight the importance of modeling interaction imperfections for bridging the gap between agent training and real-world deployment.",
+      "authors": [
+        "Yuxin Chen",
+        "Xiaodong Cai",
+        "Junfeng Fang",
+        "Zhuowen Han",
+        "Yu Wang",
+        "Yaorui Shi",
+        "Yi Zhang",
+        "Qi Gu",
+        "Xunliang Cai",
+        "Xiang Wang",
+        "An Zhang",
+        "Tat-Seng Chua"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-26T16:02:00+00:00",
+      "link": "https://arxiv.org/pdf/2605.27209v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "enhancing agent reasoning robustness under noisy environments",
+      "llm_evidence_cn": "在噪声环境中增强代理推理鲁棒性",
+      "llm_evidence": "在噪声环境中增强代理推理鲁棒性",
+      "canonical_evidence": "在噪声环境中增强代理推理鲁棒性",
+      "llm_tldr_en": "Proposes NoisyAgent, a training framework that incorporates environmental noise into agent training to improve robustness of reasoning, planning, and tool use in real-world deployments.",
+      "llm_tldr_cn": "该论文指出当前代理在理想训练环境与真实随机环境之间存在性能差距，提出NoisyAgent框架，在代理训练中显式引入环境不完美性（如噪声观测、随机干扰）。实验证明，经过NoisyAgent训练的代理在多个基准上表现出更强的鲁棒性，且不显著损失干净环境下的性能。",
+      "llm_tldr": "该论文指出当前代理在理想训练环境与真实随机环境之间存在性能差距，提出NoisyAgent框架，在代理训练中显式引入环境不完美性（如噪声观测、随机干扰）。实验证明，经过NoisyAgent训练的代理在多个基准上表现出更强的鲁棒性，且不显著损失干净环境下的性能。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "reasoning and decision making in LLM agents",
+      "matched_requirement_id": "req-6",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.25535v1",
+      "source": "arxiv",
+      "title": "Personalize-then-Store: Benchmarking and Learning Personalized Memory for Long-horizon Agents",
+      "abstract": "Existing large language model (LLM) based memory systems apply universal, static policies that overlook a fundamental reality: the contexts that are worth storing in memory are different across users. This misalignment wastes limited memory budget on transient interactions while failing to preserve critical context for long horizon tasks. To address this gap, we investigate an underexplored question: can LLM based memory systems learn personalized memory policies? We introduce PerMemBench, the first benchmark for evaluating personalized memory systems, featuring multi year, multi domain interaction histories across diverse user personas. We further present the first empirical study of memory personalization, proposing session level storage gating, a lightweight framework that selectively bypasses memory operations for transient sessions. Our study confirms that personalization yields substantial retention gains under perfect gating, yet reveals that accurate gating remains an open and critical challenge.",
+      "authors": [
+        "Yeonjun In",
+        "Wonjoong Kim",
+        "Sangwu Park",
+        "Kanghoon Yoon",
+        "Chanyoung Park"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-25T07:48:33+00:00",
+      "link": "https://arxiv.org/pdf/2605.25535v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "introduces benchmark and method for personalized memory in LLM agents",
+      "llm_evidence_cn": "提出个性化记忆基准和学习方法",
+      "llm_evidence": "提出个性化记忆基准和学习方法",
+      "canonical_evidence": "提出个性化记忆基准和学习方法",
+      "llm_tldr_en": "Personalize-then-Store benchmarks and learns personalized memory policies for long-horizon agents, demonstrating that universal static policies waste memory budget.",
+      "llm_tldr_cn": "现有大语言模型记忆系统采用通用静态策略，忽略了不同用户需要存储不同上下文。本文提出PerMemBench基准和个性化记忆学习方法，通过会话级个性化策略证明自适应记忆能够更好地保留关键上下文，提升长时任务表现。",
+      "llm_tldr": "现有大语言模型记忆系统采用通用静态策略，忽略了不同用户需要存储不同上下文。本文提出PerMemBench基准和个性化记忆学习方法，通过会话级个性化策略证明自适应记忆能够更好地保留关键上下文，提升长时任务表现。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.29960v1",
+      "source": "arxiv",
+      "title": "Hijacking Agent Memory: Stealthy Trojan Attacks Through Conversational Interaction",
+      "abstract": "Large language model (LLM) agents increasingly leverage long term memory to support persistent and autonomous task execution. However, this capability also introduces a new attack surface: memory poisoning, where adversaries can inject malicious information to influence future behavior. Existing memory poisoning attacks often assume that injected content can be stored directly in memory, overlooking the selective extraction and rewriting stages in modern memory pipelines. This makes prior methods ineffective under realistic settings.   In this paper, we propose MemPoison, a novel memory poisoning attack that bypasses selective memory mechanisms in LLM agents, where an attacker can inject triggerable backdoors into the agent's long-term memory through dialogue interactions, thereby misleading its subsequent responses. MemPoison introduces three key components: (i) a semantic relational bridge that binds the trigger and payload into a coherent statement to ensure they are extracted into memory together; (ii) entity masquerading that optimizes triggers to mimic named entities, resisting rewriting; and (iii) joint embedding optimization that shapes trigger-injected texts into a tight cluster in the embedding space while maintaining isolation from benign embeddings for stealth. Evaluations across different agent domains and memory mechanisms show MemPoison achieves attack success rates up to 0.95, outperforming existing baselines. Mechanistic analysis indicates that the attack exploits embedding-space anisotropy and shifts attention patterns, highlighting core vulnerabilities in selective memory systems. We evaluate multiple defense strategies and demonstrate their fundamental limitations in mitigating the attack.",
+      "authors": [
+        "Hongtao Wang",
+        "Se Yang",
+        "Yu Chen",
+        "Puzhuo Liu"
+      ],
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published": "2026-05-28T14:02:00+00:00",
+      "link": "https://arxiv.org/pdf/2605.29960v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Memory poisoning attack targeting LLM agent long-term memory",
+      "llm_evidence_cn": "针对LLM代理长期记忆的投毒攻击方法",
+      "llm_evidence": "针对LLM代理长期记忆的投毒攻击方法",
+      "canonical_evidence": "针对LLM代理长期记忆的投毒攻击方法",
+      "llm_tldr_en": "MemPoison attacks agent memory by bypassing selective extraction, injecting backdoors into long-term memory through conversational interaction.",
+      "llm_tldr_cn": "MemPoison针对LLM代理长期记忆的安全性，提出一种绕过选择性记忆机制的投毒攻击方法，通过对话交互注入可触发的后门。攻击者无需直接写入存储，利用记忆管道的提取与重写阶段实施隐蔽攻击，揭示了现有记忆机制的安全脆弱性，为防御研究提供了重要参考。",
+      "llm_tldr": "MemPoison针对LLM代理长期记忆的安全性，提出一种绕过选择性记忆机制的投毒攻击方法，通过对话交互注入可触发的后门。攻击者无需直接写入存储，利用记忆管道的提取与重写阶段实施隐蔽攻击，揭示了现有记忆机制的安全脆弱性，为防御研究提供了重要参考。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.29270v1",
+      "source": "arxiv",
+      "title": "Indexing the Unreadable: LLM-Native Recursive Construction and Search of Service Taxonomies",
+      "abstract": "The era of the Internet of Agents (IoA) is taking shape: LLM agents are expected to fulfill user goals by orchestrating fast-growing populations of Model Context Protocol (MCP) servers, Agent-to-Agent (A2A) endpoints, reusable skills, and other LLM-callable services. Yet LLMs face a structural mismatch with this regime: effective context is a scarce resource that does not scale with the number of services. Concatenating thousands of service descriptions into a prompt overflows the context window, and even when the window is large enough, models systematically under-attend to information in the middle of long inputs, the well-documented Lost-in-the-Middle phenomenon. This is fundamentally a question of context management for service discovery. To address this, we propose an LLM-native progressive-disclosure scheme and its concrete instantiation, A2X (Agent-to-Anything service discovery): an LLM-driven pipeline that automatically organizes the registered services into a hierarchical taxonomy and walks it layer by layer at query time, so that every LLM call sees only a small candidate set highly relevant to the user query. This decouples effective-context scarcity from registry size and significantly reduces token consumption while improving retrieval accuracy. Compared to full-context dumping, A2X achieves a 6.2-point Hit Rate gain at one-ninth the prompt-token cost; compared to the state-of-the-art open-source embedding-based baseline, A2X improves Hit Rate by more than 20 points.",
+      "authors": [
+        "Wei Zheng",
+        "Yang Yan",
+        "Yiyang Shao",
+        "Jinyang Li",
+        "Zeze Chang",
+        "Yukuang Jia",
+        "Qiming Mao",
+        "Chihyung Wang",
+        "Jingbin Zhou"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-28T02:38:41+00:00",
+      "link": "https://arxiv.org/pdf/2605.29270v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "LLM-native service taxonomy construction for agent service orchestration",
+      "llm_evidence_cn": "为代理服务编排构建LLM原生服务分类索引",
+      "llm_evidence": "为代理服务编排构建LLM原生服务分类索引",
+      "canonical_evidence": "为代理服务编排构建LLM原生服务分类索引",
+      "llm_tldr_en": "Proposes recursive taxonomy construction for service discovery in Internet of Agents, addressing context management for tool orchestration.",
+      "llm_tldr_cn": "针对代理服务发现中的上下文管理难题，提出LLM原生递归构造和服务分类搜索方法，通过构建服务分类树有效降低长上下文中的信息丢失，支持代理高效编排海量服务资源。实验表明该方法在服务检索和任务完成率上均优于基线，为物联网代理生态中的工具调用提供了可扩展的索引方案。",
+      "llm_tldr": "针对代理服务发现中的上下文管理难题，提出LLM原生递归构造和服务分类搜索方法，通过构建服务分类树有效降低长上下文中的信息丢失，支持代理高效编排海量服务资源。实验表明该方法在服务检索和任务完成率上均优于基线，为物联网代理生态中的工具调用提供了可扩展的索引方案。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "Agent harness",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.25869v1",
+      "source": "arxiv",
+      "title": "Mitigating Provenance-Role Collapse in Long-Term Agents via Typed Memory Representation",
+      "abstract": "Long-term memory is essential for persistent LLM agents, yet prevailing architectures store historical interactions as unstructured, flat text. This unconstrained storage induces provenance-role collapse, a critical failure mode where agents suffer from source-monitoring errors. To resolve this cognitive vulnerability at the architectural level, we propose MemIR, a typed Memory Intermediate Representation that operationalizes source monitoring as a structural constraint. MemIR writes long-term memory into grounded atoms that separate raw evidence, retrieval cues, and truth-bearing claims, with factual authorization restricted to supported claim atoms. It then applies multi-route atomic projection and provenance-scoped utilization to transform heterogeneous retrieval hits into claim-centered candidate bundles and a normalized fact interface for answer generation. Experiments on LoCoMo and BEAM-100K demonstrate that MemIR consistently outperforms existing memory baselines, especially on tasks requiring source tracking, temporal grounding, and aggregation of fragmented evidence.",
+      "authors": [
+        "Zhengda Jin",
+        "Bingbing Wang",
+        "Jing Li",
+        "Ruifeng Xu",
+        "Min Zhang"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "published": "2026-05-25T13:56:31+00:00",
+      "link": "https://arxiv.org/pdf/2605.25869v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "proposes typed memory representation to mitigate provenance-role collapse in long-term agents",
+      "llm_evidence_cn": "提出类型化记忆表示缓解长期智能体的来源-角色崩塌",
+      "llm_evidence": "提出类型化记忆表示缓解长期智能体的来源-角色崩塌",
+      "canonical_evidence": "提出类型化记忆表示缓解长期智能体的来源-角色崩塌",
+      "llm_tldr_en": "MemIR introduces a typed memory intermediate representation that structurally separates evidence, cues, and claims to prevent provenance-role collapse in persistent agents.",
+      "llm_tldr_cn": "长期智能体将历史交互存储为无结构文本，导致来源-角色崩塌，即智能体无法正确监控信息来源。本文提出MemIR，一种类型化记忆中间表示，将原始证据、检索线索和真值主张分离，通过多路径原子投影和来源约束使用来增强记忆可靠性。",
+      "llm_tldr": "长期智能体将历史交互存储为无结构文本，导致来源-角色崩塌，即智能体无法正确监控信息来源。本文提出MemIR，一种类型化记忆中间表示，将原始证据、检索线索和真值主张分离，通过多路径原子投影和来源约束使用来增强记忆可靠性。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2605.30785v1",
+      "source": "arxiv",
+      "title": "Learning Agent-Compatible Context Management for Long-Horizon Tasks",
+      "abstract": "LLM agents increasingly face long-horizon tasks such as web search and deep research in real-world applications, where accumulated context can cause long-context degradation and reasoning failures. Prior work mitigates this through context management with agent-side context control or fixed strategies such as summarization, which require training the agent itself for adaptation - making it impractical for closed-source agents and ignoring that different agents may require different strategies. We introduce Adaptive Context Management (AdaCoM), which trains an external LLM to manage the context of a frozen agent through flexible modification actions and end-to-end reinforcement learning. Across diverse agents on web search and deep research benchmarks, AdaCoM substantially improves performance by preserving task constraints and progress while pruning stale content. The learned strategies reveal a Fidelity-Reliability Trade-off: agents with higher vanilla ReAct performance benefit from higher-fidelity context preservation, whereas lower-performing agents require more aggressive compression to stay within a reliable reasoning regime. Transfer experiments show that AdaCoM generalizes most effectively across agents with similar capability (measured by vanilla ReAct performance), suggesting a practical path toward reusable context managers for agent systems.",
+      "authors": [
+        "Lu Yi",
+        "Runlin Lei",
+        "Liuyi Yao",
+        "Yuexiang Xie",
+        "Yuyang Li",
+        "Wenhao Zhang",
+        "Zhewei Wei",
+        "Yaliang Li",
+        "Jian-Yun Nie"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "published": "2026-05-29T03:21:08+00:00",
+      "link": "https://arxiv.org/pdf/2605.30785v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "proposes adaptive context management for long-horizon tasks, related to memory/context",
+      "llm_evidence_cn": "提出自适应上下文管理方法，与记忆/上下文相关",
+      "llm_evidence": "提出自适应上下文管理方法，与记忆/上下文相关",
+      "canonical_evidence": "提出自适应上下文管理方法，与记忆/上下文相关",
+      "llm_tldr_en": "Adaptive Context Management (AdaCoM) trains an external LLM to manage the context of a frozen agent via reinforcement learning, improving long-horizon task performance.",
+      "llm_tldr_cn": "长时程任务中累积上下文导致性能下降。现有方法需训练智能体本身，对闭源模型不适用。本文提出AdaCoM，训练外部LLM通过灵活修改动作管理冻结智能体的上下文，在网页搜索和深度研究基准上提升性能。",
+      "llm_tldr": "长时程任务中累积上下文导致性能下降。现有方法需训练智能体本身，对闭源模型不适用。本文提出AdaCoM，训练外部LLM通过灵活修改动作管理冻结智能体的上下文，在网页搜索和深度研究基准上提升性能。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.01838v1",
+      "source": "arxiv",
+      "title": "LayerRoute: Input-Conditioned Adaptive Layer Skipping via LoRA Fine-Tuning for Agentic Language Models",
+      "abstract": "Agentic language model systems alternate between two structurally distinct step types: structured tool calls (short, deterministic, low perplexity) and open-ended planning/reasoning steps (long, complex, high perplexity). Despite this heterogeneity, current inference systems apply identical compute to every step. We introduce LayerRoute, a lightweight adapter that learns to selectively skip transformer blocks on a per-input basis. LayerRoute augments each of the 24 transformer blocks in Qwen2.5-0.5B-Instruct with: (1) a per-layer router (~897 parameters, Linear(896,1)) that outputs a hard binary gate via the straight-through estimator, and (2) LoRA adapters (rank 8, ~1.08M parameters) on the Q/K/V/O attention projections. The backbone weights remain frozen. A single end-to-end training pass on agentic data (Hermes, Glaive, GSM8K, Turing) with a gate regularisation term forces the system to discover which blocks are skippable per input type. After 3,000 steps (6.4 minutes on an A100 40GB), LayerRoute achieves a 12.91% skip differential: tool calls skip 15.25% of FLOPs while planning steps skip only 2.34%, using only 1.10M trainable parameters (0.22% of the 494M backbone). Quality improves over the base model due to LoRA adaptation, with perplexity delta of -1.29 on tool calls and -1.30 on planning.",
+      "authors": [
+        "Prateek Kumar Sikdar"
+      ],
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-06-01T07:50:05+00:00",
+      "link": "https://arxiv.org/pdf/2606.01838v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "adaptive layer skipping for tool calls and planning steps",
+      "llm_evidence_cn": "针对工具调用和规划步骤的自适应层跳过",
+      "llm_evidence": "针对工具调用和规划步骤的自适应层跳过",
+      "canonical_evidence": "针对工具调用和规划步骤的自适应层跳过",
+      "llm_tldr_en": "LayerRoute learns to skip transformer blocks per input step, reducing compute for structured tool calls while preserving capacity for planning.",
+      "llm_tldr_cn": "Agentic语言模型的推理中，工具调用步骤和规划步骤具有不同的计算需求，但现有系统对所有步骤一视同仁。本文提出LayerRoute，通过轻量级路由器学习每步跳过部分Transformer层，并辅以LoRA微调保持性能。实验表明该方法在不牺牲准确率的前提下大幅降低推理开销，尤其加速了工具调用步骤。",
+      "llm_tldr": "Agentic语言模型的推理中，工具调用步骤和规划步骤具有不同的计算需求，但现有系统对所有步骤一视同仁。本文提出LayerRoute，通过轻量级路由器学习每步跳过部分Transformer层，并辅以LoRA微调保持性能。实验表明该方法在不牺牲准确率的前提下大幅降低推理开销，尤其加速了工具调用步骤。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "tool using ability of language agents",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2605.26252v1",
+      "source": "arxiv",
+      "title": "Is Agent Memory a Database? Rethinking Data Foundations for Long-Term AI Agent Memory",
+      "abstract": "Long-running AI agents need persistent memory. Memory supports learning across sessions, reduces repeated context injection, and enables auditing of past decisions. Current agent memory systems and database paradigms treat memory as storage. They localize correctness at records, embeddings, or edges. Each supplies only some of the capabilities that long-term memory requires. The result is four recurring failure modes: unregulated growth, missing semantic revision, capacity-driven forgetting, and read-only retrieval. In our vision, long-term agent memory is a new data-management workload. Its correctness is a property of the state trajectory, not of individual records. We formalize this as Governed Evolving Memory (GEM). GEM replaces record-level database operations with four state-level operators: ingestion, revision, forgetting, and retrieval. Six correctness conditions govern how the state evolves. Three structural observations establish that no record-level system can satisfy these conditions, regardless of the storage model. We realize the abstraction in MemState, a prototype on a property-graph backend. MemState validates feasibility and exposes the gap to a native engine. We outline three research directions that define memory-centric data management as a workload.",
+      "authors": [
+        "Abdelghny Orogat",
+        "Essam Mansour"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.DB"
+      ],
+      "published": "2026-05-25T18:22:42+00:00",
+      "link": "https://arxiv.org/pdf/2605.26252v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "rethinking data foundations for long-term agent memory",
+      "llm_evidence_cn": "重新思考长期Agent记忆的数据基础",
+      "llm_evidence": "重新思考长期Agent记忆的数据基础",
+      "canonical_evidence": "重新思考长期Agent记忆的数据基础",
+      "llm_tldr_en": "Argues that agent memory is a new data-management workload, formalized as Governed Evolving Memory (GEM) with state trajectory correctness.",
+      "llm_tldr_cn": "当前Agent记忆系统和数据库范式将记忆视为存储，导致记录、嵌入或图结构仅提供部分能力，出现无节制增长、缺少语义修订等问题。本文提出将长期Agent记忆视为一种新的数据管理工作负载，并形式化为治理进化记忆（GEM），其正确性由状态轨迹而非单个记录定义。GEM为Agent记忆系统提供了理论基础。",
+      "llm_tldr": "当前Agent记忆系统和数据库范式将记忆视为存储，导致记录、嵌入或图结构仅提供部分能力，出现无节制增长、缺少语义修订等问题。本文提出将长期Agent记忆视为一种新的数据管理工作负载，并形式化为治理进化记忆（GEM），其正确性由状态轨迹而非单个记录定义。GEM为Agent记忆系统提供了理论基础。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "memory mechanisms in LLM based agents",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "8plus"
+    },
+    {
+      "id": "2606.00189v1",
+      "source": "arxiv",
+      "title": "Learning to Construct Practical Agentic Systems",
+      "abstract": "Automated design and optimization of agentic LLM-based systems leads to sophisticated systems that substantially improve result quality over off-the-shelf agentic patterns. However, studies of fielded agentic systems show that production systems focus much more on issues such as simplicity, controllability, and predictability of inference costs. In this paper we propose principled approaches to designing and optimizing practical agentic systems. We describe an agent framework that enables designers to enforce modularity in agentic systems, by defining \"pseudo-tools\" that call LLMs recursively on a restricted context. Using this framework we hand-engineer agents for a diverse set of tasks, and show that relative to dynamically-planned workflows, hand-constructed fixed workflows are generally cheaper and more accurate. We then propose novel learning methods for the agentic components required by this framework, namely pseudo-tools and fixed workflows. These learning methods generally outperform hand-engineered agents. We also exploit the modularity of the framework to apply multi-objective optimization methods to jointly optimize cost and response quality and blend the results of multiple learning systems.",
+      "authors": [
+        "Aditya Kumar",
+        "Zhihan Lei",
+        "Jerry Yan",
+        "Joshua W. Momo",
+        "Lauhitya Reddy",
+        "Rafael Enrique Cabrera Jimenez",
+        "Cassandra A. Cohen",
+        "Arthur Kajiyama",
+        "William W. Cohen"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published": "2026-05-29T16:02:26+00:00",
+      "link": "https://arxiv.org/pdf/2606.00189v1",
+      "tags": [
+        "keyword:llm-agent",
+        "query:llm-agent"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "agent framework enforcing modularity via pseudo-tools",
+      "llm_evidence_cn": "通过伪工具实现模块化的代理框架（Agent harness）",
+      "llm_evidence": "通过伪工具实现模块化的代理框架（Agent harness）",
+      "canonical_evidence": "通过伪工具实现模块化的代理框架（Agent harness）",
+      "llm_tldr_en": "Proposes principled approaches to design and optimize practical agentic systems, using pseudo-tools to enforce modularity, showing hand-engineered fixed workflows outperform dynamic planning in cost-predictability and simplicity.",
+      "llm_tldr_cn": "该论文关注实用化代理系统的设计原则，提出通过定义“伪工具”（递归调用LLM的受限上下文）来强制模块化的代理框架。相比动态规划的工作流，手工构建的固定工作流在简单性、可控性和推理成本可预测性上表现更优。该工作为构建生产级代理提供了实用指导。",
+      "llm_tldr": "该论文关注实用化代理系统的设计原则，提出通过定义“伪工具”（递归调用LLM的受限上下文）来强制模块化的代理框架。相比动态规划的工作流，手工构建的固定工作流在简单性、可控性和推理成本可预测性上表现更优。该工作为构建生产级代理提供了实用指导。",
+      "llm_tags": [
+        "query:llm-agent"
+      ],
+      "matched_query_tag": "query:llm-agent",
+      "matched_query_text": "Agent harness",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
